@@ -74,7 +74,7 @@ export default function NavBar() {
                 to={"/signIn"}
                 className="inline-block w-full px-4 py-2 text-center text-gray-200 bg-gray-800 rounded-md shadow hover:bg-gray-100 transition"
               >
-                Auth
+                LogIn
               </Link>
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function NavBar() {
             className="px-4 py-2 text-gray-200 bg-gray-800 rounded-md font-semibold tracking-wide shadow-md hover:bg-gray-100 hover:text-gray-800 transition"
             to={"/signIn"}
           >
-            Auth
+            LogIn
           </Link>
         </div>
       </div>

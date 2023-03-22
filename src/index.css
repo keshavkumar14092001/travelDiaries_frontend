@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.signInContainer {
+  background-image: url("../src/assets/rain-drop-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 87vh;
+}
+
+.signUpContainer {
+  background-image: url("../src/assets/rain-drop-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 87vh;
+}
