@@ -1,8 +1,10 @@
 import React from "react";
 import Road from "../assets/road.jpg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
   return (
     <div className="w-full h-[80vh]">
       <div className="h-[66vh] md:h-[70vh] w-full relative">
@@ -23,12 +25,26 @@ const Home = () => {
         </h1>
         <div className="flex flex-col md:flex-row justify-center items-center gap-y-2 md:gap-x-8 pt-2 md:pt-4">
           <button>
-            <Link
-              to={"/signIn"}
-              className="inline-block uppercase w-full px-4 py-2 text-center text-sm md:text-base font-semibold border text-gray-200 bg-gray-800 rounded-md shadow hover:bg-gray-300 hover:text-gray-800 hover:shadow-md transition-all"
-            >
-              Share your Experience with us
-            </Link>
+            {isLoggedIn ? (
+              <>
+                {" "}
+                <Link
+                  to={"/add"}
+                  className="inline-block uppercase w-full px-4 py-2 text-center text-sm md:text-base font-semibold border text-gray-200 bg-gray-800 rounded-md shadow hover:bg-gray-300 hover:text-gray-800 hover:shadow-md transition-all"
+                >
+                  Share your Experience with us
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  to={"/signIn"}
+                  className="inline-block uppercase w-full px-4 py-2 text-center text-sm md:text-base font-semibold border text-gray-200 bg-gray-800 rounded-md shadow hover:bg-gray-300 hover:text-gray-800 hover:shadow-md transition-all"
+                >
+                  Share your Experience with us
+                </Link>
+              </>
+            )}
           </button>
           <button>
             <Link

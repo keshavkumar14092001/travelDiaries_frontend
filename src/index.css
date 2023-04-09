@@ -15,3 +15,10 @@
   background-size: cover;
   height: 87vh;
 }
+
+.addContainer {
+  background-image: url("../src/assets/rain-drop-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 87vh;
+}

@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import { getAllPost } from "../api/helper";
+import { getAllPost, getUserDetails } from "../api/helper";
 import DiariesItem from "./DiariesItem";
 
 const Diaries = () => {
   const [posts, setPosts] = useState([]);
+  const [user, setUser] = useState();
 
   useEffect(() => {
     getAllPost()
       .then((data) => {
         setPosts(data.posts);
-        console.log(data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -26,6 +26,8 @@ const Diaries = () => {
             image={item.image}
             id={item._id}
             location={item.location}
+            user={item.user._id}
+            name={item.user.name}
           />
         ))}
     </section>

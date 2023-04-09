@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/travel.png";
+import { useSelector } from "react-redux";
 
 export default function NavBar() {
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const [navbar, setNavbar] = useState(false);
 
   return (
@@ -57,47 +59,111 @@ export default function NavBar() {
               navbar ? "block" : "hidden"
             }`}
           >
-            <div className="mt-3 space-y-2 md:hidden">
+            {isLoggedIn ? (
+              <>
+                <div className="mt-3 space-y-2 md:hidden">
+                  <Link
+                    to={"/"}
+                    className="inline-block w-full px-4 py-2 text-center text-gray-200 bg-gray-800 rounded-md shadow hover:bg-gray-100 transition"
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to={"/diaries"}
+                    className="inline-block w-full px-4 py-2 text-center text-gray-200 bg-gray-800 rounded-md shadow hover:bg-gray-100 transition"
+                  >
+                    Diaries
+                  </Link>
+                  <Link
+                    to={"/add"}
+                    className="inline-block w-full px-4 py-2 text-center text-gray-200 bg-gray-800 rounded-md shadow hover:bg-gray-100 transition"
+                  >
+                    Add
+                  </Link>
+                  <Link
+                    to={"/profile"}
+                    className="inline-block w-full px-4 py-2 text-center text-gray-200 bg-gray-800 rounded-md shadow hover:bg-gray-100 transition"
+                  >
+                    Profile
+                  </Link>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="mt-3 space-y-2 md:hidden">
+                  <Link
+                    to={"/"}
+                    className="inline-block w-full px-4 py-2 text-center text-gray-200 bg-gray-800 rounded-md shadow hover:bg-gray-100 transition"
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to={"/diaries"}
+                    className="inline-block w-full px-4 py-2 text-center text-gray-200 bg-gray-800 rounded-md shadow hover:bg-gray-100 transition"
+                  >
+                    Diaries
+                  </Link>
+                  <Link
+                    to={"/signIn"}
+                    className="inline-block w-full px-4 py-2 text-center text-gray-200 bg-gray-800 rounded-md shadow hover:bg-gray-100 transition"
+                  >
+                    LogIn
+                  </Link>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+        <div className="hidden space-x-2 md:inline-block">
+          {isLoggedIn ? (
+            <>
               <Link
+                className="px-4 py-2 text-gray-200 bg-gray-800 rounded-md font-semibold tracking-wide shadow-md hover:bg-gray-100 hover:text-gray-800 transition"
                 to={"/"}
-                className="inline-block w-full px-4 py-2 text-center text-gray-200 bg-gray-800 rounded-md shadow hover:bg-gray-100 transition"
               >
                 Home
               </Link>
               <Link
+                className="px-4 py-2 text-gray-200 bg-gray-800 rounded-md font-semibold tracking-wide shadow-md hover:bg-gray-100 hover:text-gray-800 transition"
                 to={"/diaries"}
-                className="inline-block w-full px-4 py-2 text-center text-gray-200 bg-gray-800 rounded-md shadow hover:bg-gray-100 transition"
               >
                 Diaries
               </Link>
               <Link
+                className="px-4 py-2 text-gray-200 bg-gray-800 rounded-md font-semibold tracking-wide shadow-md hover:bg-gray-100 hover:text-gray-800 transition"
+                to={"/add"}
+              >
+                Add
+              </Link>
+              <Link
+                className="px-4 py-2 text-gray-200 bg-gray-800 rounded-md font-semibold tracking-wide shadow-md hover:bg-gray-100 hover:text-gray-800 transition"
+                to={"/profile"}
+              >
+                Profile
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                className="px-4 py-2 text-gray-200 bg-gray-800 rounded-md font-semibold tracking-wide shadow-md hover:bg-gray-100 hover:text-gray-800 transition"
+                to={"/"}
+              >
+                Home
+              </Link>
+              <Link
+                className="px-4 py-2 text-gray-200 bg-gray-800 rounded-md font-semibold tracking-wide shadow-md hover:bg-gray-100 hover:text-gray-800 transition"
+                to={"/diaries"}
+              >
+                Diaries
+              </Link>
+              <Link
+                className="px-4 py-2 text-gray-200 bg-gray-800 rounded-md font-semibold tracking-wide shadow-md hover:bg-gray-100 hover:text-gray-800 transition"
                 to={"/signIn"}
-                className="inline-block w-full px-4 py-2 text-center text-gray-200 bg-gray-800 rounded-md shadow hover:bg-gray-100 transition"
               >
                 LogIn
               </Link>
-            </div>
-          </div>
-        </div>
-        <div className="hidden space-x-2 md:inline-block">
-          <Link
-            className="px-4 py-2 text-gray-200 bg-gray-800 rounded-md font-semibold tracking-wide shadow-md hover:bg-gray-100 hover:text-gray-800 transition"
-            to={"/"}
-          >
-            Home
-          </Link>
-          <Link
-            className="px-4 py-2 text-gray-200 bg-gray-800 rounded-md font-semibold tracking-wide shadow-md hover:bg-gray-100 hover:text-gray-800 transition"
-            to={"/diaries"}
-          >
-            Diaries
-          </Link>
-          <Link
-            className="px-4 py-2 text-gray-200 bg-gray-800 rounded-md font-semibold tracking-wide shadow-md hover:bg-gray-100 hover:text-gray-800 transition"
-            to={"/signIn"}
-          >
-            LogIn
-          </Link>
+            </>
+          )}
         </div>
       </div>
     </nav>
