@@ -36,7 +36,7 @@ const DiariesItem = ({
   };
 
   return (
-    <div className="max-w-sm md:max-w-md lg:max-w-lg rounded overflow-hidden shadow-lg hover:shadow-xl">
+    <div className="w-[300px] md:w-[550px] rounded overflow-hidden shadow-lg hover:shadow-xl">
       <div className="w-full h-[300px]">
         <img
           className="w-full h-full"

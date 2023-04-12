@@ -65,6 +65,7 @@ const SignUp = () => {
                   value={inputs.name}
                   name="name"
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div>
@@ -82,6 +83,7 @@ const SignUp = () => {
                   value={inputs.email}
                   name="email"
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div>
@@ -99,6 +101,7 @@ const SignUp = () => {
                   value={inputs.password}
                   name="password"
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div className="w-full">

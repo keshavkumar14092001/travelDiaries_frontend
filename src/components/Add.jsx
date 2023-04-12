@@ -67,6 +67,7 @@ const Add = () => {
                   value={inputs.title}
                   name="title"
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div>
@@ -84,6 +85,7 @@ const Add = () => {
                   value={inputs.description}
                   name="description"
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div>
@@ -101,6 +103,7 @@ const Add = () => {
                   value={inputs.imageURL}
                   name="imageURL"
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div>
@@ -118,10 +121,14 @@ const Add = () => {
                   value={inputs.location}
                   name="location"
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div>
-                <label className="block text-lg md:text-2xl font-bold mb-2" htmlFor="date">
+                <label
+                  className="block text-lg md:text-2xl font-bold mb-2"
+                  htmlFor="date"
+                >
                   Date
                 </label>
                 <input
@@ -132,6 +139,7 @@ const Add = () => {
                   value={inputs.date}
                   name="date"
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div className="w-full">
